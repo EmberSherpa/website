@@ -1,0 +1,81 @@
+@mixin grid-item-columns($columns, $scale) {
+  width: (100% / $scale) * $columns;
+}
+
+.icon-grid {
+  @include clearfix;
+  @include section-margin;
+
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $base-font-color: $dark-gray !default;
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-color: $base-font-color;
+  $grid-item-height: 14em;
+
+  position: relative;
+
+  .icon-grid-item {
+    text-align: center;
+    background: $grid-item-background;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    overflow: hidden;
+    outline: none;
+    padding: 2em;
+    text-decoration: none;
+    width: 100%;
+
+    @include media($small-screen) {
+      @include grid-item-columns(2, 6);
+    }
+
+    @include media($medium-screen) {
+      @include grid-item-columns(3, 6);
+    }
+
+    @include media($large-screen) {
+      @include grid-item-columns(3, 9);
+    }
+
+    opacity: 0.5;
+
+    & > .fa {
+      color: $sherpa-orange;
+      margin-bottom: 1.2em;
+      font-size: 2.5em;
+    }
+
+    &:focus,
+    &:hover {
+      background: transparentize($grid-item-color, 0.98);
+      transition: opacity 1.5s;
+      opacity: 1;
+    }
+
+  }
+
+  .icon-grid-item h1 {
+    color: $grid-item-color;
+    font-size: 1.3em;
+    margin-bottom: 0.4em;
+  }
+
+  .icon-grid-item p {
+    margin: 0 auto;
+    color: transparentize($grid-item-color, 0.4);
+    line-height: 1.5em;
+
+    @include media($medium-screen) {
+      max-width: 70%;
+    }
+
+    @include media($small-screen) {
+      max-width: 50%;
+    }
+  }
+}

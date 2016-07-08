@@ -1,0 +1,77 @@
+.square-grid {
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $base-font-color: $dark-gray !default;
+  $flex-box-border-color: $light-gray;
+  $flex-box-border: 1px solid $flex-box-border-color;
+  $flex-box-background: lighten($light-gray, 10%);
+  $flex-box-gutter: 1em;
+  $flex-box-color: transparentize($base-font-color, 0.3);
+  $flex-box-top-colors: $sherpa-orange, $sherpa-green, $sherpa-yellow, $sherpa-blue, $sherpa-gray;
+  $flex-box-size: 15em;
+  $card-spacing: 3em;
+
+  display: flex;
+  flex-wrap: wrap;
+  @include section-margin;
+  justify-content: center;
+  margin: 0 auto;
+  width: 95%;
+  padding-left: $card-spacing;
+
+  &:after {
+    height: 1px;
+    width: $flex-box-size;
+    margin-right: $card-spacing;
+    content: "";
+  }
+
+  .square-grid-item {
+    transition: all 0.3s ease-in-out;
+    margin-bottom: $card-spacing;
+    margin-right: $card-spacing;
+    text-align: center;
+    background: $flex-box-background;
+    cursor: pointer;
+    height: $flex-box-size;
+    width: $flex-box-size;
+    overflow: hidden;
+    outline: none;
+    padding: 2em;
+    border-radius: $base-border-radius;
+    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%);
+    text-decoration: none;
+
+    @for $i from 1 to length($flex-box-top-colors) * 10 {
+      $idx: $i % length($flex-box-top-colors);
+      &:nth-child(#{$i}) {
+        $color-from-list: nth($flex-box-top-colors, $idx + 1);
+        border-top: 6px solid $color-from-list;
+        &:focus, &:hover {
+          background-color: transparentize($color-from-list, 0.9);
+        }
+      }
+    }
+
+    .fa {
+      color: $sherpa-gray;
+      font-size: 2em;
+      margin: 0 auto 0.5em;
+      opacity: 0.4;
+    }
+
+    .flex-title {
+      color: $flex-box-color;
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      color: transparentize($flex-box-color, 0.1);
+      line-height: 1.5em;
+      margin: auto;
+    }
+  }
+}

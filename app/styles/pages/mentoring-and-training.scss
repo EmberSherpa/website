@@ -1,0 +1,68 @@
+.mentoring, .training {
+  header.main {
+    @include section-margin;
+    padding: 25px;
+    text-align: center;
+    background: url("images/mountains.jpg");
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-size:     cover;
+    color: $sherpa-white;
+
+    h4 {
+      color: $sherpa-blue;
+    }
+  }
+
+  .mentoring-section {
+    padding: 25px;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @mixin flex-item {
+      padding: 10px;
+      flex-basis: 20em;
+      flex-grow: 1;
+    }
+
+    .content-container {
+      @include flex-item;
+      p {
+        font-size: 20px;
+      }
+    }
+
+    .image-container {
+      @include flex-item;
+      text-align: center;
+    }
+  }
+
+  .bottom-bar {
+    padding: 1em;
+    background-color: $sherpa-orange;
+    text-align: center;
+    line-height: 60px;
+
+    p {
+      font-size: 30px;
+    }
+
+    a {
+      color: $sherpa-white;
+    }
+
+    .fa {
+      border: 1px solid $sherpa-white;
+      display: inline-block;
+      height: 1.5em;
+      width: 1.5em;
+      line-height: 1.5em;
+      padding-left: 0.2em;
+      border-radius: 50%;
+    }
+  }
+}

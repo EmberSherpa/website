@@ -1,0 +1,27 @@
+$sherpa-orange: #DF542F;
+$sherpa-green:  #70B958;
+$sherpa-yellow: #F8C42F;
+$sherpa-blue:   #227984;
+$sherpa-gray:   #777776;
+$sherpa-white:  #FEFEFE;
+$sherpa-light-gray: lighten($sherpa-gray, 50);
+
+$sherpa-color-names: orange,         green,         yellow,         blue,         gray,         white,         light-gray;
+$sherpa-colors:      $sherpa-orange, $sherpa-green, $sherpa-yellow, $sherpa-blue, $sherpa-gray, $sherpa-white, $sherpa-light-gray;
+
+@mixin generate-sherpa-colors {
+  @for $i from 1 through length($sherpa-colors) {
+
+    // Generates .sherpa-orange
+    .sherpa-#{nth($sherpa-color-names, $i)} {
+      background-color: nth($sherpa-colors, $i);
+    }
+    
+    // Generates .sherpa-orange-text
+    .sherpa-#{nth($sherpa-color-names, $i)}-text {
+      color: nth($sherpa-colors, $i);
+    }
+  }
+}
+
+@include generate-sherpa-colors;

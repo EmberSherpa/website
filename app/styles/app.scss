@@ -1,0 +1,56 @@
+// GLOBALS
+@import "sherpa-colors";
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+$small-screen:  em(480) !default;
+$medium-screen: em(640) !default;
+$large-screen:  em(860) !default;
+
+html, body {
+  height: 100%;
+  width:  100%;
+  margin:  0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { color: $sherpa-orange; }
+.small { font-size: 0.8em; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.row { @include row; }
+
+@mixin section-margin {
+  margin-bottom: 2em;
+}
+
+
+// PAGES
+@import "pages/contact";
+@import "pages/mentoring-and-training";
+
+// COMPONENTS
+@import "components/header";
+@import "components/parallax-window";
+@import "components/icon-grid";
+@import "components/square-grid";
+@import "components/centered-section";
+@import "components/logo-grid";
+@import "components/testimonial-section";
+
+.font-size-70 {
+  font-size: 70px;
+}
+
+.font-size-30 {
+  font-size: 30px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.shadow-text {
+    text-shadow: 0.1em 0.1em 0.1em $sherpa-gray;
+}

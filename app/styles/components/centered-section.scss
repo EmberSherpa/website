@@ -1,0 +1,6 @@
+.centered-section {
+  @include section-margin;
+
+  text-align: center;
+  padding: 2em;
+}

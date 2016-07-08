@@ -1,0 +1,24 @@
+.logo-grid {
+  @include outer-container;
+  @include section-margin;
+  text-align: center;
+
+  .logo-grid-item {
+    @include section-margin;
+
+    @include media($large-screen) {
+      @include span-columns(3);
+      @include shift(0.75);
+    }
+
+    @include media(min-width $medium-screen max-width $large-screen) {
+      @include span-columns(3);
+      @include shift(2);
+    }
+
+    @include media(max-width $medium-screen) {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}

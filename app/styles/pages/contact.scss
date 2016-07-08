@@ -1,0 +1,41 @@
+.contact {
+  background: url("/assets/images/trees-in-the-wind.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+
+  h1 {
+    font-size: 30px;
+    color: $sherpa-white;
+  }
+
+  .form-container {
+    color: $sherpa-white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @mixin flex-item {
+      flex-basis: 30em;
+      flex-grow: 1;
+      width: 40%;
+      padding: 5em;
+      margin: 20px 5%;
+      padding: 3em;
+    }
+
+    .description {
+      background-color: rgba($sherpa-gray, 0.7);
+      @include flex-item;
+    }
+
+    form {
+      @include flex-item;
+
+      p {
+        margin-top: 3em;
+      }
+    }
+  }
+}
